@@ -132,6 +132,24 @@ init_x402(app, pay_to=AGENT_ADDRESS, network=os.getenv("NETWORK_ID", "base-sepol
 _static_dir = os.path.join(os.path.dirname(__file__), "static")
 app.mount("/static", StaticFiles(directory=_static_dir), name="static")
 
+
+# ==================== SMITHERY SERVER CARD ====================
+@app.get("/.well-known/mcp/server-card.json", include_in_schema=False)
+async def server_card():
+    card = {
+        "serverInfo": {"name": "PYRESEC Code Security Engine", "version": "2.0.0"},
+        "authentication": {"required": False},
+        "tools": [
+            {"name": "quick_scan", "description": "Fast SAST scan. Top 3 findings with CWE IDs. $0.01 USDC.", "inputSchema": {"type": "object", "properties": {"code": {"type": "string"}}, "required": ["code"]}},
+            {"name": "deep_audit", "description": "Full OWASP Top 10, SCA, logic flaws, gas optimization. $0.50 USDC.", "inputSchema": {"type": "object", "properties": {"code": {"type": "string"}}, "required": ["code"]}},
+            {"name": "remediate_code", "description": "Auto-patched code with explanations. $5.00 USDC.", "inputSchema": {"type": "object", "properties": {"code": {"type": "string"}}, "required": ["code"]}}
+        ],
+        "resources": [],
+        "prompts": []
+    }
+    from fastapi.responses import JSONResponse
+    return JSONResponse(content=card)
+
 # ==================== CUSTOM LANDING PAGE ====================
 _LANDING_HTML = None
 
