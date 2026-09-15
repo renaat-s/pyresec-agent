@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+fastapi-x402
+coinbase-agentkit==0.7.4
+solana==0.38.0
+solders==0.27.1
+groq
+python-dotenv
+requests
+web3
+eth-account
+mcp>=2.0.0
+httpx
