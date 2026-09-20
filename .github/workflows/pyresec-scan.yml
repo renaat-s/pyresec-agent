@@ -1,0 +1,38 @@
+name: PYRESEC Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1'  # Weekly Monday 6AM UTC
+
+jobs:
+  quick-scan:
+    name: Quick Scan ($0.01)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PYRESEC Quick Scan
+        uses: nanoclone-ltd/pyresec-scan-action@main
+        with:
+          code-path: ./src
+          tier: quick-scan
+          x402-wallet-key: ${{ secrets.X402_WALLET_KEY }}
+
+  deep-audit:
+    name: Deep Audit ($0.50)
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: quick-scan
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PYRESEC Deep Audit
+        uses: nanoclone-ltd/pyresec-scan-action@main
+        with:
+          code-path: ./src
+          tier: deep-repo
+          x402-wallet-key: ${{ secrets.X402_WALLET_KEY }}
