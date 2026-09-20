@@ -41,13 +41,14 @@ PYRESEC_URL = os.getenv(
 PYRESEC_SENDER = os.getenv("PYRESEC_SENDER", "pyresec@nanoclone-systems-main.vercel.app")
 PYRESEC_FROM_NAME = os.getenv("PYRESEC_FROM_NAME", "PYRESEC Agent")
 
-# GitHub Search queries — repos pushed in last 48h with Web3 or FastAPI configs
+# GitHub Search queries — repos pushed recently with Web3 or FastAPI stacks
+# Uses keyword searches (filename: syntax doesn't combine well with pushed:)
 SEARCH_QUERIES = [
-    "foundry.toml filename:foundry.toml pushed:>={date}",
-    "hardhat.config.js filename:hardhat.config.js pushed:>={date}",
-    "hardhat.config.ts filename:hardhat.config.ts pushed:>={date}",
-    "fastapi filename:main.py pushed:>={date}",
-    "requirements.txt fastapi filename:requirements.txt pushed:>={date}",
+    {"query": "foundry solidity pushed:>={date}", "type": "web3", "label": "Foundry/Solidity"},
+    {"query": "hardhat ethereum pushed:>={date}", "type": "web3", "label": "Hardhat/Ethereum"},
+    {"query": "solidity smart contract pushed:>={date}", "type": "web3", "label": "Solidity Contract"},
+    {"query": "fastapi language:python pushed:>={date}", "type": "fastapi", "label": "FastAPI"},
+    {"query": "web3.py blockchain pushed:>={date}", "type": "web3", "label": "Web3.py"},
 ]
 
 # Deduplication file
@@ -213,14 +214,16 @@ def run_scraper(dry_run: bool = False, max_repos: int = 30):
     print("=" * 60)
     print()
 
-    date_threshold = (datetime.now(timezone.utc) - timedelta(days=2)).strftime("%Y-%m-%d")
+    date_threshold = (datetime.now(timezone.utc) - timedelta(days=7)).strftime("%Y-%m-%d")
     seen = load_seen_repos()
     contacted = 0
     skipped = 0
 
-    for query_template in SEARCH_QUERIES:
-        query = query_template.format(date=date_threshold)
-        print(f"[SEARCH] {query[:60]}...")
+    for query_config in SEARCH_QUERIES:
+        query = query_config["query"].format(date=date_threshold)
+        file_type = query_config["type"]
+        label = query_config["label"]
+        print(f"[SEARCH] {label}: {query[:60]}...")
 
         repos = search_repos(query, per_page=10)
         time.sleep(GITHUB_API_DELAY)
@@ -237,12 +240,6 @@ def run_scraper(dry_run: bool = False, max_repos: int = 30):
             if full_name in seen:
                 skipped += 1
                 continue
-
-            # Determine file type from query
-            if "fastapi" in query.lower() or "requirements.txt" in query.lower():
-                file_type = "fastapi"
-            else:
-                file_type = "web3"
 
             # Get commit author email
             print(f"  Checking {full_name}...")
