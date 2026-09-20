@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — PYRESEC</title>
+<meta name="description" content="Privacy Policy for PYRESEC AI Code Security Engine by NanoClone Life Sciences Ltd.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='20' fill='%23050505'/%3E%3Ctext x='60' y='50' text-anchor='middle' fill='%23dc2626' font-family='monospace' font-size='14' font-weight='bold'%3EPYRESEC%3C/text%3E%3Ctext x='60' y='70' text-anchor='middle' fill='%23666' font-family='monospace' font-size='8'%3EAI AGENT%3C/text%3E%3Ccircle cx='60' cy='35' r='6' fill='none' stroke='%23dc2626' stroke-width='2'/%3E%3Cpath d='M40 85 L60 75 L80 85' fill='none' stroke='%23dc2626' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--base-950:#050505;--base-900:#0a0a0a;--brand-red:#dc2626;--text-primary:#fff;--text-secondary:rgba(255,255,255,0.6);--text-muted:rgba(255,255,255,0.3);--glass-border:1px solid rgba(255,255,255,0.06);--font-main:"Instrument Sans",system-ui,sans-serif;--font-mono:"JetBrains Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-main);background:var(--base-950);color:var(--text-primary);min-height:100vh;line-height:1.7}
+.noise-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%filter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0}
+.orb-red{width:60vw;height:60vw;top:-20%;left:-15%;background:radial-gradient(circle,rgba(220,38,38,0.12) 0%,rgba(220,38,38,0.03) 40%,transparent 70%)}
+.container{max-width:800px;margin:0 auto;padding:6rem 2rem 4rem;position:relative;z-index:2}
+h1{font-size:2.5rem;font-weight:700;margin-bottom:0.5rem;background:linear-gradient(135deg,#fff,#dc2626);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.meta{color:var(--text-muted);font-family:var(--font-mono);font-size:0.8rem;margin-bottom:3rem}
+h2{font-size:1.4rem;font-weight:600;margin:2.5rem 0 1rem;color:#fff}
+p{color:var(--text-secondary);margin-bottom:1rem;font-size:0.95rem}
+a{color:var(--brand-red);text-decoration:none}
+a:hover{text-decoration:underline}
+.back{display:inline-flex;align-items:center;gap:0.5rem;margin-top:3rem;padding:0.6rem 1.5rem;border-radius:100px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);color:var(--brand-red);font-weight:600;font-size:0.85rem;transition:all 0.3s}
+.back:hover{background:var(--brand-red);color:#000;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="noise-overlay"></div>
+<div class="orb orb-red"></div>
+<div class="container">
+  <h1>Privacy Policy</h1>
+  <div class="meta">Last updated: 15 September 2026 &middot; NanoClone Life Sciences Ltd.</div>
+
+  <h2>1. Overview</h2>
+  <p>PYRESEC is an AI-powered code security auditing service operated by NanoClone Life Sciences Ltd. ("we", "us", "our"). This privacy policy explains what data we collect, how we use it, and your rights.</p>
+
+  <h2>2. Data We Collect</h2>
+  <p><strong>Source code submissions:</strong> Code sent to our API endpoints for security analysis is processed in real-time and is <strong>not stored</strong> after the analysis response is returned. We do not retain, log, or aggregate your source code.</p>
+  <p><strong>Wallet addresses:</strong> The x402 payment protocol records on-chain transaction data (payer wallet address, transaction hash, amount) which is public on the Base blockchain. We log settlement confirmations for revenue accounting.</p>
+  <p><strong>IP addresses:</strong> Request IP addresses may be logged temporarily for abuse prevention and rate limiting. IP logs are rotated and deleted within 30 days.</p>
+  <p><strong>No cookies:</strong> PYRESEC does not set any cookies. We do not use tracking cookies, session cookies, or advertising cookies.</p>
+  <p><strong>No accounts:</strong> PYRESEC has no user accounts, login systems, or registration forms.</p>
+
+  <h2>3. How We Use Data</h2>
+  <p>Collected data is used solely for: (a) processing security analysis requests, (b) recording payment settlements for revenue accounting, (c) abuse prevention and rate limiting, and (d) maintaining service health and uptime.</p>
+
+  <h2>4. Data Sharing</h2>
+  <p>We do not sell, rent, or share your data with third parties. On-chain transaction data is publicly visible on the Base blockchain by design of the x402 protocol.</p>
+
+  <h2>5. Data Retention</h2>
+  <p>Source code: not retained. Payment records: retained indefinitely for accounting. IP logs: deleted within 30 days.</p>
+
+  <h2>6. Security</h2>
+  <p>All API communication occurs over HTTPS (enforced via TLS). We implement security headers including HSTS, Content Security Policy, and X-Frame-Options.</p>
+
+  <h2>7. Your Rights</h2>
+  <p>Since we do not store personal data beyond what is described above, there is no personal data to access, modify, or delete. Wallet transaction data is on-chain and controlled by the blockchain, not by us.</p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date.</p>
+
+  <h2>9. Contact</h2>
+  <p>For questions about this policy, contact NanoClone Life Sciences Ltd. via the <a href="https://nanoclone-systems-main.vercel.app/">company website</a>.</p>
+
+  <a href="/" class="back">&larr; Back to PYRESEC</a>
+</div>
+</body>
+</html>
