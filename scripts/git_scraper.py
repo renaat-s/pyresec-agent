@@ -15,7 +15,7 @@ Environment Variables:
     GITHUB_TOKEN        — GitHub personal access token (optional, raises rate limit)
     RESEND_API_KEY      — Resend API key for email delivery
     PYRESEC_URL         — PYRESEC API base URL (default: production)
-    PYRESEC_SENDER      — Verified sender email in Resend (default: pyresec@nanoclone-systems-main.vercel.app)
+    PYRESEC_SENDER      — Verified sender email in Resend (default: onboarding@resend.dev)
     DRY_RUN             — Set to "true" to preview without sending emails
 """
 
@@ -29,6 +29,9 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 import httpx
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ==================== CONFIGURATION ====================
 
@@ -38,7 +41,7 @@ PYRESEC_URL = os.getenv(
     "PYRESEC_URL",
     "https://pyresec-agent-519576377065.us-central1.run.app"
 )
-PYRESEC_SENDER = os.getenv("PYRESEC_SENDER", "pyresec@nanoclone-systems-main.vercel.app")
+PYRESEC_SENDER = os.getenv("PYRESEC_SENDER", "onboarding@resend.dev")
 PYRESEC_FROM_NAME = os.getenv("PYRESEC_FROM_NAME", "PYRESEC Agent")
 
 # GitHub Search queries — repos pushed recently with Web3 or FastAPI stacks
