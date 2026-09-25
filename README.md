@@ -239,7 +239,7 @@ gcloud run deploy pyresec-agent \
 ## Company
 
 **NanoClone Life Sciences Ltd.** (UK)
-Website: [nanoclone-systems-main.vercel.app](https://nanoclone-systems-main.vercel.app/)
+Website: [nanoclonesystems.com](https://nanoclonesystems.com/)
 
 ## License
 

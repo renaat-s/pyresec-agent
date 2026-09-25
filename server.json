@@ -11,7 +11,7 @@
   "license": "Proprietary",
   "author": {
     "name": "NanoClone Life Sciences Ltd.",
-    "url": "https://nanoclone-systems-main.vercel.app/"
+    "url": "https://nanoclonesystems.com/"
   },
   "transport": {
     "type": "streamable-http",

@@ -86,7 +86,7 @@ security, SAST, SCA, code-audit, x402, USDC, Base, OWASP, vulnerability-scanning
 | Field | Value |
 |-------|-------|
 | **Author** | NanoClone Life Sciences Ltd. |
-| **Website** | https://nanoclone-systems-main.vercel.app/ |
+| **Website** | https://nanoclonesystems.com/ |
 | **GitHub** | https://github.com/renaat-s/pyresec-agent |
 | **Email** | (use your business email) |
 
