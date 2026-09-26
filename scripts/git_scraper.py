@@ -188,80 +188,72 @@ def build_email_html(repo_name: str, file_type: str) -> str:
 <body style="margin:0;padding:0;background:#050505;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#050505;padding:40px 20px;">
 <tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="background:#0a0a0a;border-radius:12px;border:1px solid #1a1a1a;overflow:hidden;">
+<table width="600" cellpadding="0" cellspacing="0" style="background:rgba(15,15,15,0.9);border-radius:16px;border:2px solid rgba(255,255,255,0.25);overflow:hidden;">
+
   <!-- Header -->
-  <tr><td style="padding:32px 40px 24px;border-bottom:1px solid #1a1a1a;">
-    <table cellpadding="0" cellspacing="0"><tr>
-      <td style="padding-right:12px;"><img src="{logo_base}/pyresec.png" width="40" height="40" alt="PYRESEC" style="display:block;"></td>
-      <td style="vertical-align:middle;">
-        <span style="color:#fff;font-size:18px;font-weight:700;letter-spacing:1px;">PYRESEC</span>
-        <span style="color:#666;font-size:12px;display:block;">AI Code Security Engine</span>
-      </td>
-    </tr></table>
+  <tr><td style="padding:48px 40px 40px;border-bottom:2px solid rgba(255,255,255,0.25);" align="center">
+    <img src="{logo_base}/pyresec.png" width="100" height="100" alt="PYRESEC" style="display:block;margin:0 auto 20px auto;border-radius:20px;">
+    <div style="color:#fff;font-size:42px;font-weight:800;letter-spacing:6px;margin:0 0 8px 0;">PYRESEC</div>
+    <div style="color:#999;font-size:17px;letter-spacing:3px;text-transform:uppercase;">AI Code Security Engine</div>
   </td></tr>
 
   <!-- Body -->
-  <tr><td style="padding:32px 40px;">
-    <p style="color:#ccc;font-size:15px;margin:0 0 16px;">Hey,</p>
-    <p style="color:#ccc;font-size:15px;margin:0 0 20px;">Noticed you just pushed a new project to GitHub (<a href="https://github.com/{repo_name}" style="color:#dc2626;">{repo_name}</a>).</p>
-    <p style="color:#ccc;font-size:15px;margin:0 0 20px;">If you want a high-speed security check <strong style="color:#fff;">without creating an account or managing API keys</strong>, you can stream a micro-audit straight to your terminal.</p>
-    <p style="color:#ccc;font-size:15px;margin:0 0 12px;">Run it instantly via the x402 protocol client:</p>
+  <tr><td style="padding:36px 40px;" align="center">
+    <p style="color:#ccc;font-size:15px;margin:0 0 16px;text-align:center;">Hey,</p>
+    <p style="color:#ccc;font-size:15px;margin:0 0 20px;text-align:center;">Noticed you just pushed a new project to GitHub (<a href="https://github.com/{repo_name}" style="color:#dc2626;">{repo_name}</a>).</p>
+    <p style="color:#ccc;font-size:15px;margin:0 0 20px;text-align:center;">If you want a high-speed security check <strong style="color:#fff;">without creating an account or managing API keys</strong>, you can stream a micro-audit straight to your terminal.</p>
+    <p style="color:#ccc;font-size:15px;margin:0 0 16px;text-align:center;">Run it instantly via the x402 protocol client:</p>
 
     <!-- Code Block -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;"><tr><td style="background:#111;border-radius:8px;border:1px solid #222;padding:16px 20px;">
-      <code style="color:#22c55e;font-family:'SF Mono',Consolas,monospace;font-size:13px;white-space:pre-wrap;">pip install x402
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px;"><tr><td style="background:rgba(255,255,255,0.04);border-radius:12px;border:2px solid rgba(255,255,255,0.3);padding:24px 28px;">
+      <code style="color:#22c55e;font-family:'SF Mono',Consolas,monospace;font-size:15px;white-space:pre-wrap;display:block;text-align:center;">pip install x402
 x402 run {PYRESEC_URL}/v1/audit/quick-scan \\
   --data '{{"code": "&lt;your-code-here&gt;"}}'</code>
     </td></tr></table>
 
     <!-- Cost & Output -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
       <tr>
-        <td style="background:#111;border-radius:8px;border:1px solid #222;padding:16px 20px;">
-          <table cellpadding="0" cellspacing="0"><tr>
-            <td style="padding-right:16px;"><span style="color:#22c55e;font-size:22px;font-weight:700;">$0.01</span><br><span style="color:#666;font-size:11px;">USDC on Base</span></td>
-            <td style="border-left:1px solid #333;padding-left:16px;"><span style="color:#ccc;font-size:13px;">Top 3 vulnerability findings<br>CWE IDs + line-number pinpointing</span></td>
+        <td style="background:rgba(255,255,255,0.04);border-radius:12px;border:2px solid rgba(255,255,255,0.3);padding:24px 28px;">
+          <table width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td style="padding-right:24px;vertical-align:middle;text-align:center;"><span style="color:#22c55e;font-size:32px;font-weight:800;">$0.01</span><br><span style="color:#888;font-size:13px;">USDC on Base</span></td>
+            <td style="border-left:2px solid rgba(255,255,255,0.3);padding-left:24px;vertical-align:middle;"><span style="color:#ccc;font-size:14px;text-align:center;">Top 3 vulnerability findings<br>CWE IDs + line-number pinpointing</span></td>
           </tr></table>
         </td>
       </tr>
     </table>
 
     <!-- Pricing Tiers -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
       <tr>
-        <td style="background:#111;border-radius:8px;border:1px solid #222;padding:14px;text-align:center;width:33%;">
-          <div style="color:#22c55e;font-size:18px;font-weight:700;">$0.01</div>
-          <div style="color:#888;font-size:11px;margin-top:4px;">Quick Scan</div>
+        <td style="background:rgba(255,255,255,0.04);border-radius:12px;border:2px solid rgba(255,255,255,0.3);padding:24px;text-align:center;width:33%;">
+          <div style="color:#22c55e;font-size:28px;font-weight:800;">$0.01</div>
+          <div style="color:#999;font-size:14px;margin-top:6px;letter-spacing:1px;">Quick Scan</div>
         </td>
-        <td style="width:8px;"></td>
-        <td style="background:#111;border-radius:8px;border:1px solid #222;padding:14px;text-align:center;width:33%;">
-          <div style="color:#eab308;font-size:18px;font-weight:700;">$0.50</div>
-          <div style="color:#888;font-size:11px;margin-top:4px;">Deep Audit</div>
+        <td style="width:10px;"></td>
+        <td style="background:rgba(255,255,255,0.04);border-radius:12px;border:2px solid rgba(255,255,255,0.3);padding:24px;text-align:center;width:33%;">
+          <div style="color:#eab308;font-size:28px;font-weight:800;">$0.50</div>
+          <div style="color:#999;font-size:14px;margin-top:6px;letter-spacing:1px;">Deep Audit</div>
         </td>
-        <td style="width:8px;"></td>
-        <td style="background:#111;border-radius:8px;border:1px solid #222;padding:14px;text-align:center;width:33%;">
-          <div style="color:#dc2626;font-size:18px;font-weight:700;">$5.00</div>
-          <div style="color:#888;font-size:11px;margin-top:4px;">Auto-Remediation</div>
+        <td style="width:10px;"></td>
+        <td style="background:rgba(255,255,255,0.04);border-radius:12px;border:2px solid rgba(255,255,255,0.3);padding:24px;text-align:center;width:33%;">
+          <div style="color:#dc2626;font-size:28px;font-weight:800;">$5.00</div>
+          <div style="color:#999;font-size:14px;margin-top:6px;letter-spacing:1px;">Auto-Remediation</div>
         </td>
       </tr>
     </table>
 
-    <p style="color:#888;font-size:13px;margin:0 0 24px;">Deep Audits and Auto-Remediation patches are also supported natively via the x402 client.</p>
+    <p style="color:#888;font-size:14px;margin:0 0 24px;text-align:center;">Deep Audits and Auto-Remediation patches are also supported natively via the x402 client.</p>
 
     <!-- Links -->
-    <p style="margin:0;"><a href="{PYRESEC_URL}/docs" style="color:#dc2626;font-size:13px;text-decoration:none;">Documentation</a> <span style="color:#333;">|</span> <a href="{PYRESEC_URL}/mcp/manifest.json" style="color:#dc2626;font-size:13px;text-decoration:none;">MCP Manifest for IDE Agents</a></p>
+    <p style="margin:0;text-align:center;"><a href="{PYRESEC_URL}/docs" style="color:#dc2626;font-size:14px;text-decoration:none;">Documentation</a> <span style="color:#444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span> <a href="{PYRESEC_URL}/mcp/manifest.json" style="color:#dc2626;font-size:14px;text-decoration:none;">MCP Manifest for IDE Agents</a></p>
   </td></tr>
 
   <!-- Footer -->
-  <tr><td style="padding:24px 40px;border-top:1px solid #1a1a1a;">
-    <table cellpadding="0" cellspacing="0"><tr>
-      <td style="padding-right:10px;vertical-align:middle;"><img src="{logo_base}/nanoclone.png" height="24" alt="NanoClone Systems" style="display:block;"></td>
-      <td style="vertical-align:middle;">
-        <span style="color:#666;font-size:12px;">NanoClone Systems Ltd.</span><br>
-        <span style="color:#444;font-size:11px;">AI Code Security via x402 Micropayments</span>
-      </td>
-    </tr></table>
+  <tr><td style="padding:40px 40px;border-top:2px solid rgba(255,255,255,0.25);" align="center">
+    <img src="{logo_base}/nanoclone.png" height="64" alt="NanoClone Systems" style="display:block;margin:0 auto;">
   </td></tr>
+
 </table>
 </td></tr>
 </table>
